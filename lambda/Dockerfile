@@ -4,7 +4,7 @@ FROM public.ecr.aws/lambda/python:3.8
 # from your project folder.
 
 COPY requirements.txt  .
-RUN pip install -r requirements.txt --target "${LAMBDA_TASK_ROOT}"
+RUN pip install --upgrade pip && pip install -r requirements.txt --target "${LAMBDA_TASK_ROOT}"
 
 # Copy function code
 COPY handler.py ${LAMBDA_TASK_ROOT}

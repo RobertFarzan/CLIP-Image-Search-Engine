@@ -1,0 +1,9 @@
+docker build -t clip_embeddings_uploader .
+
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 052244140852.dkr.ecr.us-east-1.amazonaws.com
+
+aws ecr create-repository --repository-name clip-embeddings-uploader --image-scanning-configuration scanOnPush=true --image-tag-mutability MUTABLE
+
+docker tag clip_embeddings_uploader:latest 052244140852.dkr.ecr.us-east-1.amazonaws.com/clip-embeddings-uploader
+
+docker push 052244140852.dkr.ecr.us-east-1.amazonaws.com/clip-embeddings-uploader
