@@ -1,0 +1,7 @@
+boto3==1.26.99
+botocore==1.29.99
+faiss-cpu==1.7.3
+huggingface-hub==0.13.2
+numpy==1.24.2
+tensorflow==2.11.0
+transformers==4.27.1
